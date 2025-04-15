@@ -1,7 +1,8 @@
 # Instalar los contenedores
 
-- instalar los servicios con el compando 
-``` docker compose up -d ```
+- instalar los servicios con el comando
+  
+  ``` docker compose up -d ```
 
 - despues en el servidor de prometheus configurar para que pueda leer los datos enviados
 
