@@ -1,4 +1,4 @@
-Instalar los contenedores
+# Instalar los contenedores
 
 - instalar los servicios con el compando 
 ``` docker compose up -d ```
@@ -11,11 +11,11 @@ dentro de la carpeta prometheus
 Ejemplos:
 
 # Example job for node_exporter
-  - job_name: 'srv-test-20-host'
+  - job_name: 'srv-test-1-host'
     static_configs:
-      - targets: ['10.40.30.20:9100']
+      - targets: ['XXX.XXX.XXX.XXX:9100']
 
 # Example job for cadvisor
-  - job_name: 'srv-test-20-contenedores'
+  - job_name: 'srv-test-1-contenedores'
     static_configs:
-      - targets: ['10.40.30.20:8080']
+      - targets: ['XXX.XXX.XXX.XXX:8080']
