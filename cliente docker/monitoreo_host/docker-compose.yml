@@ -16,7 +16,7 @@ services:
     image: gcr.io/cadvisor/cadvisor:v0.46.0
     container_name: cadvisor
     ports:
-      - "8080:8080"
+      - "8181:8080"
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:rw
@@ -28,6 +28,13 @@ services:
       - "/dev/kmsg:/dev/kmsg"
     privileged: true
     restart: unless-stopped
-
-
-
+  promtail:
+    image: grafana/promtail:2.9.3
+    container_name: promtail
+    volumes:
+#      - /home/supervisor/servtomcat/datos/logs-tomcat-internacion:/var/log/tomcat-internacion
+      - /var/log:/var/log      
+      - ./promtail/config.yml:/etc/promtail/config.yml
+#      - ./pgbouncer/pgbouncer.log:/var/log/pgbouncer.log
+    command: -config.file=/etc/promtail/config.yml
+    restart: unless-stopped

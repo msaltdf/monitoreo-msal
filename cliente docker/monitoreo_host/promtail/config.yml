@@ -1,0 +1,56 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://10.40.30.200:1300/loki/api/v1/push
+
+scrape_configs:
+  - job_name: pgbouncer
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: pgbouncer
+          __path__: /var/log/pgbouncer.log
+  - job_name: nginx-srv-97
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: nginx-srv-97
+          __path__: /var/log/nginx/*log
+  - job_name: tomcat-catalina
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: tomcat-catalina
+          log_type: catalina
+          __path__: /var/log/tomcat-internacion/catalina*.log
+
+  - job_name: tomcat-localhost
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: tomcat-localhost
+          log_type: localhost
+          __path__: /var/log/tomcat-internacion/localhost*.log
+
+  - job_name: tomcat-access
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: tomcat-access
+          log_type: access
+          __path__: /var/log/tomcat-internacion/localhost_access_log*.txt
+
+  - job_name: tomcat-manager
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: tomcat-manager
+          log_type: manager
+          __path__: /var/log/tomcat-internacion/{host,manager}*.log

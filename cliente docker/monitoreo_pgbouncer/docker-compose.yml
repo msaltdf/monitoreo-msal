@@ -1,0 +1,17 @@
+services:
+  pgbouncer_exporter:
+    image: spreaker/prometheus-pgbouncer-exporter:latest
+    container_name: pgbouncer_exporter
+    ports:
+      - "9127:9127" # Este exporter usa 9127 por defecto
+    volumes:
+      - ./config.yml:/etc/pgbouncer-exporter/config.yml
+    environment:
+      # Este exporter usa variables separadas
+      PGBOUNCER_HOST: 192.168.10.97
+      PGBOUNCER_PORT: 6432
+      PGBOUNCER_USER: stats_pgbouncer
+      PGBOUNCER_PASS: 123456
+      PGBOUNCER_DATABASE: pgbouncer # Generalmente 'pgbouncer'
+      PGBOUNCER_EXPORTER_PORT: 9127
+      PGBOUNCER_EXPORTER_HOST: 0.0.0.0
