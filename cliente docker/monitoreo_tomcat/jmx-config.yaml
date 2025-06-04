@@ -1,0 +1,6 @@
+---
+startDelaySeconds: 5
+hostPort: 192.168.10.97:9010
+lowercaseOutputName: true
+rules:
+  - pattern: ".*"

@@ -10,8 +10,8 @@ services:
       # Este exporter usa variables separadas
       PGBOUNCER_HOST: 192.168.10.97
       PGBOUNCER_PORT: 6432
-      PGBOUNCER_USER: stats_pgbouncer
-      PGBOUNCER_PASS: 123456
+      PGBOUNCER_USER: stats_user
+      PGBOUNCER_PASS: stats_password
       PGBOUNCER_DATABASE: pgbouncer # Generalmente 'pgbouncer'
       PGBOUNCER_EXPORTER_PORT: 9127
       PGBOUNCER_EXPORTER_HOST: 0.0.0.0

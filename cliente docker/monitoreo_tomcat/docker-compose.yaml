@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  jmx-exporter:
+    image: bitnami/jmx-exporter:latest
+    container_name: jmx-exporter
+    volumes:
+      - ./jmx-config.yaml:/opt/bitnami/jmx-exporter/conf/config.yml
+    ports:
+      - "9400:9400"
+    command: 
+      - "9400"
+      - "/opt/bitnami/jmx-exporter/conf/config.yml"
+    restart: unless-stopped

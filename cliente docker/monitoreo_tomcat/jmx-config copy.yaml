@@ -1,0 +1,11 @@
+---
+startDelaySeconds: 0
+hostPort: 192.168.10.97:9010 # Asegúrate de que este es el puerto JMX de tu Tomcat
+username: 
+password: 
+jmxUrl: service:jmx:rmi:///jndi/rmi://192.168.10.97:9010/jmxrmi
+ssl: false
+lowercaseOutputName: false
+lowercaseOutputLabelNames: false
+rules:
+  - pattern: '.*'
