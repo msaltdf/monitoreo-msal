@@ -3,4 +3,11 @@ startDelaySeconds: 5
 hostPort: 192.168.10.97:9010
 lowercaseOutputName: true
 rules:
-  - pattern: ".*"
+  - pattern: 'Catalina<type=ThreadPool,name="http-nio-.*">'
+    name: tomcat_threadpool_busy_threads
+    attrNameSnakeCase: true
+    value: busyThreads
+  - pattern: 'Catalina<type=ThreadPool,name="http-nio-.*">'
+    name: tomcat_threadpool_current_threads
+    attrNameSnakeCase: true
+    value: currentThreadCount

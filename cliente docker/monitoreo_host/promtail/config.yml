@@ -29,7 +29,7 @@ scrape_configs:
         labels:
           job: tomcat-catalina
           log_type: catalina
-          __path__: /var/log/tomcat-internacion/catalina*.log
+          __path__: /var/log/logs-tomcat-internacion/catalina*.log
 
   - job_name: tomcat-localhost
     static_configs:
@@ -37,7 +37,7 @@ scrape_configs:
         labels:
           job: tomcat-localhost
           log_type: localhost
-          __path__: /var/log/tomcat-internacion/localhost*.log
+          __path__: /var/log/logs-tomcat-internacion/localhost*.log
 
   - job_name: tomcat-access
     static_configs:
@@ -45,7 +45,7 @@ scrape_configs:
         labels:
           job: tomcat-access
           log_type: access
-          __path__: /var/log/tomcat-internacion/localhost_access_log*.txt
+          __path__: /var/log/logs-tomcat-internacion/localhost_access_log*.txt
 
   - job_name: tomcat-manager
     static_configs:
@@ -53,4 +53,4 @@ scrape_configs:
         labels:
           job: tomcat-manager
           log_type: manager
-          __path__: /var/log/tomcat-internacion/{host,manager}*.log
+          __path__: /var/log/logs-tomcat-internacion/{host,manager}*.log
